@@ -2,7 +2,7 @@ import re
 import os
 import pandas as pd
 
-dataset = pd.read_csv('rq1&2_data.csv')
+dataset = pd.read_csv('rq1_data.csv')
 
 occurrences = []
 projects = {}

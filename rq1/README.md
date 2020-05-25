@@ -1,9 +1,9 @@
-# RQ1 - To what extent do code and process metrics predict the defectiveness of IaC blueprints?
+# RQ1a - To what extent do code and process metrics predict the defectiveness of IaC blueprints?
 
 
-The file **rq1&2_data.csv** contains the results of the application of the five ML methods for each of the 85 projects; while the file **rq1.py** is the script used to analyze those results.
+The file **rq1_data.csv** contains the results of the application of the five ML methods for each of the 85 projects; while the file **rq1a.py** is the script used to analyze those results.
 
-Run ```python rq1.py``` to start the analysis.
+Run ```python rq1a.py``` to start the analysis.
 
 <br>
 
@@ -99,4 +99,255 @@ Run ```python rq1.py``` to start the analysis.
 
 <br>
 
+
+****
+
+# RQ1b - How is the prediction performance affected by the choice of learning methods?
+
+
+The file **rq1_data.csv** contains the results of the application of the five ML methods for each of the 85 projects; while the file **rq1b.py** is the script used to analyze those results aggregating data by model.
+
+Run ```python rq1b.py``` to start the analysis.
+
+
+<br>
+
+
+## Summary of techniques
+
+### Random Forest
+
+|   | F1| MCC| AUC-PR| Precision| Recall| AUC-ROC| 
+|---|---|---|---|---|---|---|
+|mean| 0.816733| 0.803269| 0.868379| 0.835877| 0.854172| 0.965540|
+|std| 0.149990| 0.148461| 0.104386| 0.145294| 0.135913| 0.036946| 
+|min| 0.156340| 0.201464| 0.525299| 0.089660| 0.342857| 0.814699| 
+|25%| 0.768208| 0.739363| 0.826053| 0.791369| 0.805642| 0.953746| 
+|50%| 0.865054| 0.836699| 0.897466| 0.867437| 0.891104| 0.976409| 
+|75%| 0.915474| 0.910435| 0.940225| 0.921888| 0.948026| 0.990600| 
+|max| 1.000000| 1.000000| 1.000000| 1.000000| 1.000000| 1.000000|
+
+<br>
+
+### Decition Tree (CART)
+
+|   | F1| MCC| AUC-PR| Precision| Recall| AUC-ROC| 
+|---|---|---|---|---|---|---|
+|mean| 0.794107| 0.779577| 0.851036| 0.793298| 0.875916| 0.911471|
+|std| 0.174861| 0.173687| 0.125796| 0.184785| 0.110953| 0.068717| 
+|min| 0.137527| 0.139613| 0.484058| 0.077192| 0.554167| 0.706356| 
+|25%| 0.725082| 0.695832| 0.800630| 0.721605| 0.828333| 0.880159|
+|50%| 0.829067| 0.821721| 0.887571| 0.843750| 0.900000| 0.926389| 
+|75%| 0.927451| 0.905737| 0.946078| 0.916667| 0.964286| 0.960898| 
+|max| 1.000000| 1.000000| 1.000000| 1.000000| 1.000000| 1.000000|
+
+<br>
+
+### Support Vector Classifier
+
+|   | F1| MCC| AUC-PR| Precision| Recall| AUC-ROC| 
+|---|---|---|---|---|---|---|
+|mean| 0.701505| 0.678968| 0.797182| 0.697344| 0.809215| 0.903285|
+|std| 0.228729| 0.230409| 0.145737| 0.236848| 0.176351| 0.099605|
+|min| 0.023045| -0.005026| 0.443925| 0.043750| 0.013374| 0.435760| 
+|25%| 0.610819| 0.606740| 0.702580| 0.623497| 0.751367| 0.877425| 
+|50%| 0.750614| 0.731989| 0.838864| 0.762566| 0.845238| 0.928571| 
+|75%| 0.852381| 0.834010| 0.907708| 0.866874| 0.937704| 0.964742| 
+|max| 1.000000| 1.000000| 1.000000| 1.000000| 1.000000| 1.000000|
+
+<br>
+
+
+### Logistic Regression
+
+|   | F1| MCC| AUC-PR| Precision| Recall| AUC-ROC| 
+|---|---|---|---|---|---|---|
+|mean| 0.662913| 0.640783| 0.768727| 0.649720| 0.827421| 0.898858|
+|std| 0.253924| 0.245219| 0.162389| 0.268021| 0.191651| 0.102252| 
+|min| 0.000000| 0.000000| 0.426194| 0.000000| 0.000000| 0.359489| 
+|25%| 0.512241| 0.506404| 0.636422| 0.508525| 0.780303| 0.870417| 
+|50%| 0.742500| 0.710830| 0.814962| 0.706667| 0.878531| 0.923352|
+|75%| 0.844086| 0.819246| 0.904171| 0.838710| 0.944444| 0.965453| 
+|max| 1.000000| 1.000000| 1.000000| 1.000000| 1.000000| 1.000000| 
+
+<br>
+
+### Naive Bayes
+|   | F1| MCC| AUC-PR| Precision| Recall| AUC-ROC| 
+|---|---|---|---|---|---|---|
+|mean| 0.518076| 0.469497| 0.691686| 0.493108| 0.831046| 0.816885| 
+|std| 0.284979| 0.281290| 0.171928| 0.315568| 0.121170| 0.112726|
+|min| 0.038668| 0.042130| 0.397745| 0.019910| 0.516667| 0.531029|
+|25%| 0.229421| 0.204351| 0.525357| 0.155789| 0.735294| 0.749206| 
+|50%| 0.520144| 0.436563| 0.666400| 0.562857| 0.867647| 0.844394| 
+|75%| 0.757672| 0.710515| 0.839398| 0.764583| 0.921515| 0.899132|
+|max| 0.976190| 0.960619| 0.982143| 0.964286| 1.000000| 0.996041| 
+
+<br>
+<br>
+
+## Differences among means and statistical tests
+
+**Difference table info:**
+* Values below the diagonal are difference between the mean of the model in the row and the model in the column. A negative value means that the model in the row performed worse than the one in the column.
+
+**Statistical test table info:**
+* Values above the diagonal are the Choen's *d* effect size.
+* Values below the diagonal are the p-values for the pairwise Wilcoxon's rank test.
+* The shown p-values are not corrected for the number of comparisons. To do so, multiply each value by the number of comparisons, that is: *p-value * 10*.
+
+<br>
+
+### AUC-PR
+
+#### Difference
+
+|Model  | RF  | CART  | SVM  | LR  | NB|
+|:------|----:|------:|-----:|----:|--:|
+|RF  | -  | -  | -  | -  | -|
+|CART  | -0.0173  | -  | -  | -  | -|
+|SVM  | -0.0712  | -0.0539  | -  | -  | -|
+|LR  | -0.0997  | -0.0823  | -0.0285  | -  | -|
+|NB  | -0.1767  | -0.1594  | -0.1055  | -0.077  | -|
+
+<br>
+
+#### Statistical test
+
+|  Model  |   RF    |  CART   |  SVM    |  LR     |   NB    |
+|--------:|--------:|--------:|--------:|--------:|--------:|
+|RF   |   -  |    0.15 |   0.5622  |  0.7291 | 1.2406|
+|CART|  3.19e-01   |   -  |   0.396 |   0.5667 | 1.0578|
+|SVM  |3.27e-06 | 1.37e-03   |   -  |  0.1843 | 0.6613|
+|LR | 3.59e-07 |  1.81e-13 | 5.65e-02   |   - | 0.4607|
+|NB | 2.07e-11 |  1.91e-15 | 6.80e-07 | 2.99e-12  |   -|
+
+<br>
+
+### MCC 
+
+#### Difference
+
+|Model  | RF  | CART  | SVM  | LR  | NB|
+|:------|----:|------:|-----:|----:|--:|
+|RF  | -  | -  | -  | -  | -|
+|CART  | -0.0237  | -  | -  | -  | -|
+|SVM  | -0.1243  | -0.1006  | -  | -  | -|
+|LR  | -0.1625  | -0.1388  | -0.0382  | -  | -|
+|NB  | -0.3338  | -0.3101  | -0.2095  | -0.1713  | -|
+
+<br>
+
+#### Statistical test
+
+|  Model  |   RF    |  CART   |  SVM    |  LR     |   NB    |
+|--------:|--------:|--------:|--------:|--------:|--------:|
+|RF   |  -   | 0.1466   | 0.6421  |  0.8005 | 1.4816|
+|CART | 1.78e-01    |  -  |  0.4939  |  0.6532 | 1.3265|
+|SVM | 3.25e-06 | 2.09e-04   |   - |  0.1604 | 0.8137|
+|LR | 8.66e-08  |9.55e-13 | 1.05e-01   |   - |  0.6491|
+|NB | 7.43e-13  |2.12e-15 | 1.90e-08 | 3.44e-13  |   -|
+
+<br>
+
+### AUC-ROC
+
+#### Difference
+
+|Model  | RF  | CART  | SVM  | LR  | NB|
+|:------|----:|------:|-----:|----:|--:|
+|RF  | -  | -  | -  | -  | -|
+|CART  | -0.0541  | -  | -  | -  | -|
+|SVM  | -0.0623  | -0.0082  | -  | -  | -|
+|LR  | -0.0667  | -0.0126  | -0.0044  | -  | -|
+|NB  | -0.1487  | -0.0946  | -0.0864  | -0.082  | -|
+
+<br>
+
+#### Statistical test
+
+|  Model  |   RF    |  CART   |  SVM    |  LR     |   NB    |
+|--------:|--------:|--------:|--------:|--------:|--------:|
+|RF  |   - |   0.9785  |  0.8306  |  0.8654 | 1.7679|
+|CART | 1.18e-10  |    - |   0.0959  |  0.1448 | 1.0132|
+|SVM | 2.31e-09 | 6.76e-01  |    -  |  0.0439 | 0.8117|
+|LR | 1.84e-09 | 3.16e-01 | 7.82e-01   |   - | 0.7617|
+|NB | 4.50e-15 | 2.42e-14 | 3.70e-10   | 8.75e-13  |   -|
+
+<br>
+
+
+### Precision
+
+#### Difference
+
+|Model  | RF  | CART  | SVM  | LR  | NB|
+|:------|----:|------:|-----:|----:|--:|
+|RF  | -  | -  | -  | -  | -|
+|CART  | -0.0426  | -  | -  | -  | -|
+|SVM  | -0.1385  | -0.0960  | -  | -  | -|
+|LR  | -0.1862  | -0.1436  | -0.0476  | -  | -|
+|NB  | -0.3428  | -0.3002  | -0.2042  | -0.1566  | -|
+
+<br>
+
+#### Statistical test
+
+|  Model  |   RF    |  CART   |  SVM    |  LR     |   NB    |
+|--------:|--------:|--------:|--------:|--------:|--------:|
+|RF   |  - |   0.256  |   0.706  |  0.8621 | 1.3926|
+|CART | 3.52e-02   |   -  |  0.4524 |   0.6237 | 1.1609|
+|SVM | 1.89e-07 | 1.66e-04   |   -  |  0.1882 | 0.7308|
+|LR | 1.89e-08 |  4.51e-12 | 1.48e-01 |     - | 0.5349|
+|NB | 6.74e-13  | 2.05e-15 | 3.77e-07 | 3.73e-11  |   -|
+
+<br>
+
+### Recall
+
+#### Difference
+
+|Model  | RF  | CART  | SVM  | LR  | NB|
+|:------|----:|------:|-----:|----:|--:|
+|RF  | -  | -  | -  | -  | -|
+|CART  | 0.0217  | -  | -  | -  | -|
+|SVM  | -0.0450  | -0.0667  | -  | -  | -|
+|LR  | -0.0268  | -0.0485  | 0.0182  | -  | -|
+|NB  | -0.0231  | -0.0449  | 0.0218  | 0.0036  | -|
+
+<br>
+
+#### Statistical test
+
+|  Model  |   RF    |  CART   |  SVM    |  LR     |   NB    |
+|--------:|--------:|--------:|--------:|--------:|--------:|
+|RF   |  -   |-0.1754  |  0.2858  | 0.1609  | 0.1797|
+|CART | 2.16e-01 |     -  |  0.4539  |  0.3097 |  0.3862|
+|SVM  |3.63e-02|  6.34e-04   |   - |  -0.0988 | -0.1446|
+|LR  |3.17e-01 |8.76e-03 | 2.80e-01   |   - | -0.0226|
+|NB  |6.21e-02 | 1.56e-03 | 8.87e-01 |  1.64e-01  |   -|
+
+<br>
+
+### F1
+
+#### Difference
+
+|Model  | RF  | CART  | SVM  | LR  | NB|
+|:------|----:|------:|-----:|----:|--:|
+|RF  | -  | -  | -  | -  | -|
+|CART  | -0.0226  | -  | -  | -  | -|
+|SVM  | -0.1152  | -0.0926  | -  | -  | -|
+|LR  | -0.1538  | -0.1312  | -0.0386  | -  | -|
+|NB  | -0.2987  | -0.2760  | -0.1834  | -0.1448  | -|
+
+#### Statistical test
+
+|  Model  |   RF    |  CART   |  SVM    |  LR     |   NB    |
+|--------:|--------:|--------:|--------:|--------:|--------:|
+|RF    | -   | 0.1388   | 0.5965  |  0.7366  |1.3093|
+|CART  |2.74e-01 |     -   | 0.4556 |   0.6018 | 1.1675|
+|SVM  |4.78e-06  |7.55e-04    |  -   | 0.1596|  0.7090|
+|LR  |2.50e-07  |7.27e-13 | 1.15e-01  |    -  |0.5366|
+|NB  |7.15e-12  |1.71e-15 | 2.69e-07|  9.33e-13  |   -|
 

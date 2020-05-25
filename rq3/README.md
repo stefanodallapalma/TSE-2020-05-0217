@@ -1,291 +1,150 @@
-# RQ3 - How is the prediction performance affected by the choice of metric sets?
+# RQ3 - Which are good defect predictors? That is, what are the most selected predictors and their combinations?
+
+
+The folder **data** contains the results of the Recursive Feature Elimination procedure for all the repositories.
+The file **rfe.py** analyze those results.
+
+Run ```python rfe.py``` to print statistics on the metrics occurrences.
+
+
+## Occurrences of metrics
+
+| Occurrences | Metric |
+|-------------|--------|
+|65           | num_tokens|
+|63           | text_entropy|
+|53           | num_keys|
+|49           | lines_code|
+|48           | avg_task_size|
+|42           | num_distinct_modules|
+|38           | lines_blank|
+|37           | num_unique_names|
+|34           | num_tasks|
+|34           | num_parameters|
+|31           | lines_comment|
+|29           | num_conditions|
+|29           | num_decisions|
+|28           | num_filters|
+|24           | num_loops|
+|23           | num_vars|
+|20           | num_commands|
+|19           | change_set_max|
+|17           | num_paths|
+|16           | num_file_mode|
+|16           | num_external_modules|
+|16           | num_names_with_vars|
+|14           | loc_added|
+|13           | num_file_modules|
+|10           | delta_text_entropy|
+|10           | loc_added_avg|
+|10           | loc_removed_max|
+|10           | num_include|
+|10           | commits_count|
+|9           | code_churn|
+|9           | code_churn_max|
+|9           | loc_removed|
+|9           | num_deprecated_keywords|
+|9           | change_set_avg|
+|9           | loc_added_max|
+|8           | code_churn_avg|
+|8           | loc_removed_avg|
+|8           | num_ignore_errors|
+|7           | median_hunks_count|
+|7           | delta_avg_task_size|
+|7           | delta_lines_blank|
+|7           | delta_lines_code|
+|7           | highest_experience|
+|6           | delta_num_filters|
+|6           | contributors|
+|6           | delta_num_tokens|
+|6           | num_roles|
+|5           | num_blocks|
+|5           | num_include_tasks|
+|5           | num_import_tasks|
+|5           | minor_contributors|
+|5           | delta_lines_comment|
+|5           | delta_num_conditions|
+|5           | delta_num_decisions|
+|5           | delta_num_distinct_modules|
+|5           | delta_num_keys|
+|5           | delta_num_parameters|
+|5           | delta_num_tasks|
+|4           | num_include_vars|
+|4           | num_plays|
+|4           | delta_num_commands|
+|4           | delta_num_file_mode|
+|4           | delta_num_file_modules|
+|4           | delta_num_unique_names|
+|4           | delta_num_loops|
+|4           | delta_num_names_with_vars|
+|4           | num_regex|
+|3           | avg_play_size|
+|3           | num_lookups|
+|3           | num_authorized_key|
+|3           | delta_num_ignore_errors|
+|3           | delta_num_paths|
+|3           | delta_num_deprecated_keywords|
+|3           | delta_num_include|
+|3           | delta_num_include_tasks|
+|3           | delta_num_lookups|
+|3           | delta_num_suspicious_comments|
+|3           | delta_num_uri|
+|3           | delta_num_user_interaction|
+|3           | delta_num_vars|
+|2           | num_suspicious_comments|
+|2           | delta_num_external_modules|
+|2           | delta_num_fact_modules|
+|2           | delta_num_include_vars|
+|2           | delta_num_regex|
+|2           | num_block_error_handling|
+|2           | num_deprecated_modules|
+|2           | num_fact_modules|
+|2           | num_math_operations|
+|2           | num_uri|
+|2           | num_user_interaction|
+|2           | delta_avg_play_size|
+|2           | delta_num_authorized_key|
+|2           | delta_num_file_exists|
+|2           | delta_num_import_tasks|
+|2           | delta_num_include_role|
+|2           | delta_num_math_operations|
+|2           | delta_num_roles|
+|1           | num_import_role|
+|1           | num_include_role|
+|1           | num_file_exists|
+|1           | delta_num_import_role|
+|1           | delta_num_block_error_handling|
+|1           | delta_num_blocks|
+|1           | delta_num_deprecated_modules|
+|1           | delta_num_import_playbook|
+
+
+
+## Top 20 combinations of metrics
+
+| Occurrences | Combination |
+|-------------|--------|
+56           |num_tokens, text_entropy
+50           |num_tokens, num_keys
+48           |text_entropy, num_keys
+47           |num_tokens, text_entropy, num_keys
+47           |num_tokens, lines_code
+43           |num_tokens, text_entropy, lines_code
+43           |num_keys, lines_code
+42           |avg_task_size, text_entropy
+42           |num_keys, lines_code, num_tokens
+42           |avg_task_size, num_tokens
+40           |num_keys, text_entropy, lines_code, num_tokens
+39           |avg_task_size, num_tokens, lines_code
+38           |avg_task_size, num_tokens, num_keys
+37           |avg_task_size, num_tokens, text_entropy, num_keys
+37           |lines_code, num_distinct_modules
+36           |avg_task_size, num_distinct_modules
+36           |num_tokens, lines_code, avg_task_size, text_entropy, num_keys
+36           |num_tokens, lines_code, num_distinct_modules
+36           |num_tokens, lines_blank
+35           |num_keys, lines_code, num_distinct_modules
 
 
-The file **rq3_data.csv** contains the results of the application of the five ML methods for each of the 85 projects on the different metric sets; while the file **rq3.py** is the script used to analyze those results aggregating data by metric set.
 
-Run ```python rq3.py``` to start the analysis.
 
-
-<br>
-
-
-## Summary of metric sets
-
-### IaC-Oriented
-
-|    | F1 | MCC | AUC-PR | Precision | Recall | AUC-ROC | 
-|---|---|---|---|---|---|---|
-| mean | 0.867319 | 0.857918 | 0.901471 | 0.871980 | 0.908516 | 0.970660 | 
-| std | 0.120994 | 0.119837 | 0.083255 | 0.123635 | 0.092533 | 0.030990 | 
-| min | 0.157738 | 0.206426 | 0.525544 | 0.090150 | 0.547090 | 0.828935 | 
-| 25% | 0.838847 | 0.822706 | 0.877101 | 0.847181 | 0.878337 | 0.957755 | 
-| 50% | 0.892323 | 0.878486 | 0.922100 | 0.895127 | 0.933333 | 0.980990 | 
-| 75% | 0.943791 | 0.939622 | 0.959520 | 0.938638 | 0.972475 | 0.992747 | 
-| max | 1.000000 | 1.000000 | 1.000000 | 1.000000 | 1.000000 | 1.000000 | 
-
-<br>
-
-### Total
-
-|  | F1 | MCC | AUC-PR | Precision | Recall | AUC-ROC | 
-|---|---|---|---|---|---|---|
-| mean | 0.816733 | 0.803269 | 0.868379 | 0.835877 | 0.854172 | 0.965540 | 
-| std | 0.149990 | 0.148461 | 0.104386 | 0.145294 | 0.135913 | 0.036946 | 
-| min | 0.156340 | 0.201464 | 0.525299 | 0.089660 | 0.342857 | 0.814699 | 
-| 25% | 0.768208 | 0.739363 | 0.826053 | 0.791369 | 0.805642 | 0.953746 | 
-| 50% | 0.865054 | 0.836699 | 0.897466 | 0.867437 | 0.891104 | 0.976409 | 
-| 75% | 0.915474 | 0.910435 | 0.940225 | 0.921888 | 0.948026 | 0.990600 | 
-| max | 1.000000 | 1.000000 | 1.000000 | 1.000000 | 1.000000 | 1.000000 | 
-
-<br>
-
-###  ICO-Process
-
-|  | F1 | MCC | AUC-PR | Precision | Recall | AUC-ROC | 
-|---|---|---|---|---|---|---|
-| mean | 0.827377 | 0.816257 | 0.874372 | 0.843098 | 0.866990 | 0.967079 | 
-| std | 0.148359 | 0.144765 | 0.103282 | 0.140724 | 0.128575 | 0.034847 | 
-| min | 0.152999 | 0.190610 | 0.505172 | 0.088469 | 0.409524 | 0.805093 | 
-| 25% | 0.771142 | 0.766930 | 0.842263 | 0.794796 | 0.825610 | 0.954484 | 
-| 50% | 0.873888 | 0.854985 | 0.905256 | 0.874919 | 0.915535 | 0.975959 | 
-| 75% | 0.929035 | 0.922804 | 0.946556 | 0.926042 | 0.950000 | 0.990765 | 
-| max | 1.000000 | 1.000000 | 1.000000 | 1.000000 | 1.000000 | 1.000000 | 
-
-<br>
-
-### ICO-Delta
-
-|  | F1 | MCC | AUC-PR | Precision | Recall | AUC-ROC | 
-|---|---|---|---|---|---|---|
-| mean | 0.851623 | 0.839581 | 0.887601 | 0.858568 | 0.893231 | 0.968505 | 
-| std | 0.127573 | 0.127985 | 0.091912 | 0.129231 | 0.102853 | 0.033250 | 
-| min | 0.152668 | 0.196536 | 0.524092 | 0.087247 | 0.510053 | 0.856145 | 
-| 25% | 0.811935 | 0.784374 | 0.854680 | 0.831195 | 0.848400 | 0.953905 | 
-| 50% | 0.875547 | 0.862642 | 0.907709 | 0.885069 | 0.927489 | 0.980450 | 
-| 75% | 0.939048 | 0.935668 | 0.952396 | 0.933660 | 0.970699 | 0.990480 | 
-| max | 1.000000 | 1.000000 | 1.000000 | 1.000000 | 1.000000 | 1.000000 | 
-
-<br>
-
-### Process
-
-|  | F1 | MCC | AUC-PR | Precision | Recall | AUC-ROC | 
-|---|---|---|---|---|---|---|
-| mean | 0.168766 | 0.077604 | 0.548034 | 0.168583 | 0.277431 | 0.546740 | 
-| std | 0.164102 | 0.113347 | 0.102744 | 0.158392 | 0.248384 | 0.070929 | 
-| min | 0.000000 | -0.057269 | 0.323011 | 0.000000 | 0.000000 | 0.401536 | 
-| 25% | 0.034503 | 0.007732 | 0.485865 | 0.044508 | 0.023723 | 0.503249 | 
-| 50% | 0.114462 | 0.045369 | 0.535122 | 0.128242 | 0.264951 | 0.536931 | 
-| 75% | 0.261235 | 0.108492 | 0.618686 | 0.273752 | 0.501603 | 0.575462 | 
-| max | 0.726190 | 0.678571 | 0.892857 | 0.714286 | 0.857143 | 0.812791 | 
-
-<br>
-
-### Delta-Process
-|  | F1 | MCC | AUC-PR | Precision | Recall | AUC-ROC | 
-|---|---|---|---|---|---|---|
-| mean | 0.173068 | 0.084417 | 0.555094 | 0.172774 | 0.282874 | 0.552766 | 
-| std | 0.176161 | 0.120250 | 0.103430 | 0.169578 | 0.259978 | 0.073045 | 
-| min | 0.000000 | -0.064456 | 0.319931 | 0.000000 | 0.000000 | 0.394362 | 
-| 25% | 0.031883 | 0.011681 | 0.489165 | 0.047348 | 0.033270 | 0.508136 | 
-| 50% | 0.117440 | 0.043831 | 0.537398 | 0.105834 | 0.250000 | 0.536528 | 
-| 75% | 0.276611 | 0.100454 | 0.630035 | 0.270911 | 0.484375 | 0.583769 | 
-| max | 0.690476 | 0.642857 | 0.883929 | 0.678571 | 0.928571 | 0.821429 | 
-
-<br>
-
-### Delta
-|  | F1 | MCC | AUC-PR | Precision | Recall | AUC-ROC | 
-|---|---|---|---|---|---|---|
-| mean | 0.159641 | 0.074483 | 0.473316 | 0.162432 | 0.242136 | 0.499231 | 
-| std | 0.161695 | 0.113940 | 0.141955 | 0.152585 | 0.239436 | 0.086600 | 
-| min | 0.000000 | -0.073937 | 0.003086 | 0.000000 | 0.000000 | 0.279762 | 
-| 25% | 0.033706 | 0.000000 | 0.373425 | 0.027524 | 0.050379 | 0.459525 | 
-| 50% | 0.115450 | 0.029835 | 0.469773 | 0.115604 | 0.186584 | 0.494385 | 
-| 75% | 0.220320 | 0.127165 | 0.560124 | 0.275175 | 0.315104 | 0.533586 | 
-| max | 0.662406 | 0.571429 | 0.857143 | 0.607143 | 0.903226 | 0.821429 | 
-
-<br>
-<br>
-
-## Differences among means and statistical tests
-
-**Difference table info:**
-* Values below the diagonal are difference between the mean of the RF trained and tested on the metric set in the row and the one in the column. A negative value means that the RF trained and tested with the metric set in the row performed worse than the one that used the metric set in the column.
-
-**Statistical test table info:**
-* Values above the diagonal are the Choen's *d* effect size.
-* Values below the diagonal are the p-values for the pairwise Wilcoxon's rank test.
-* The shown p-values are not corrected for the number of comparisons. To do so, multiply each value by the number of comparisons, that is: *p-value * 21*.
-
-<br>
-
-### AUC-PR
-
-#### Differences|
-
-|metrics|ico|ico-delta|ico-process|total|process_delta|process|delta|
-|:------|--:|--------:|----------:|----:|------------:|------:|----:|
-|ico| -| -| -| -| -| -| -|
-|ico_delta|-0.0139| -| -| -| -| -| -|
-|ico_process|-0.0271|-0.0132| -| -| -| -| -|
-|total|-0.0331|-0.0192|-0.0060| -| -| -| -|
-|process_delta|-0.3464|-0.3325|-0.3193|-0.3133| -| -| -|
-|process|-0.3534|-0.3396|-0.3263|-0.3203|-0.0071| -| -|
-|delta|-0.4282|-0.4143|-0.4011|-0.3951|-0.0818|-0.0747| -|
-
-#### Statistical test
-
-|metrics|ico|ico-delta|ico-process|total|process_delta|process|delta|
-|:------|--:|--------:|----------:|----:|------------:|------:|----:|
-|ico| -|0.1582|0.2889|0.3505|3.6893|3.7797|3.6794|
-|ico_delta|1.83e-09| -|0.1353|0.1955|3.3984|3.4835|3.4645|
-|ico_process|1.60e-12|7.34e-06| -|0.0577|3.0891|3.1679|3.2308|
-|total|1.91e-06|3.08e-04|2.51e-02| -|3.015|3.0931|3.1708|
-|process_delta|1.71e-15|1.71e-15|1.71e-15|1.71e-15| -|0.0685|0.6585|
-|process|1.71e-15|1.71e-15|1.71e-15|1.71e-15|6.46e-02| -|0.6030|
-|delta|1.71e-15|1.71e-15|1.71e-15|1.71e-15|1.63e-13|1.84e-12| -|
-
-<br>
-
-### MCC
-
-#### Differences
-
-|metrics|ico|ico-delta|ico-process|total|process_delta|process|delta|
-|:------|--:|--------:|----------:|----:|------------:|------:|----:|
-|ico| -| -| -| -| -| -| -|
-|ico_delta|-0.0183| -| -| -| -| -| -|
-|ico_process|-0.0417|-0.0233| -| -| -| -| -|
-|total|-0.0546|-0.0363|-0.0130| -| -| -| -|
-|process_delta|-0.7735|-0.7552|-0.7318|-0.7189| -| -| -|
-|process|-0.7803|-0.7620|-0.7387|-0.7257|-0.0068| -| -|
-|delta|-0.7834|-0.7651|-0.7418|-0.7288|-0.0099|-0.0031| -|
-
-
-#### Statistical test
-
-|metrics|ico|ico-delta|ico-process|total|process_delta|process|delta|
-|:------|--:|--------:|----------:|----:|------------:|------:|----:|
-|ico| -|0.1479|0.3135|0.4051|6.4435|6.6901|6.7003|
-|ico_delta|3.57e-09| -|0.1707|0.262|6.0813|6.3032|6.3144|
-|ico_process|8.13e-12|1.55e-06| -|0.0886|5.4995|5.6816|5.6942|
-|total|3.63e-07|2.13e-05|5.05e-03| -|5.3211|5.4943|5.5073|
-|process_delta|1.71e-15|1.71e-15|1.71e-15|1.71e-15| -|0.0583|0.0848|
-|process|1.71e-15|1.71e-15|1.71e-15|1.71e-15|4.18e-01| -|0.0275|
-|delta|1.71e-15|1.71e-15|1.71e-15|1.71e-15|3.54e-01|8.45e-01| -|
-
-<br>
-
-### AUC-ROC
-
-#### Differences
-
-|metrics|ico|ico-delta|ico-process|total|process_delta|process|delta|
-|:------|--:|--------:|----------:|----:|------------:|------:|----:|
-|ico| -| -| -| -| -| -| -|
-|ico_delta|-0.0022| -| -| -| -| -| -|
-|ico_process|-0.0036|-0.0014| -| -| -| -| -|
-|total|-0.0051|-0.0030|-0.0015| -| -| -| -|
-|process_delta|-0.4179|-0.4157|-0.4143|-0.4128| -| -| -|
-|process|-0.4239|-0.4218|-0.4203|-0.4188|-0.0060| -| -|
-|delta|-0.4714|-0.4693|-0.4678|-0.4663|-0.0535|-0.0475| -|
-
-#### Statistical test
-
-|metrics|ico|ico-delta|ico-process|total|process_delta|process|delta|
-|:------|--:|--------:|----------:|----:|------------:|------:|----:|
-|ico| -|0.067|0.1086|0.1502|7.4482|7.7453|7.2485|
-|ico_delta|7.73e-02| -|0.0419|0.0844|7.3258|7.6142|7.1542|
-|ico_process|1.33e-03|1.93e-01| -|0.0428|7.2398|7.5221|7.0878|
-|total|1.91e-02|2.26e-01|4.85e-01| -|7.1313|7.4057|7.0042|
-|process_delta|1.71e-15|1.71e-15|1.71e-15|1.71e-15| -|0.0837|0.6683|
-|process|1.71e-15|1.71e-15|1.71e-15|1.71e-15|8.95e-02| -|0.6002|
-|delta|1.71e-15|1.71e-15|1.71e-15|1.71e-15|1.86e-10|2.25e-09| -|
-
-<br>
-
-
-### Precision
-
-#### Differences
-
-|metrics|ico|ico-delta|ico-process|total|process_delta|process|delta|
-|:------|--:|--------:|----------:|----:|------------:|------:|----:|
-|ico| -| -| -| -| -| -| -|
-|ico_delta|-0.0134| -| -| -| -| -| -|
-|ico_process|-0.0289|-0.0155| -| -| -| -| -|
-|total|-0.0361|-0.0227|-0.0072| -| -| -| -|
-|process_delta|-0.6992|-0.6858|-0.6703|-0.6631| -| -| -|
-|process|-0.7034|-0.6900|-0.6745|-0.6673|-0.0042| -| -|
-|delta|-0.7095|-0.6961|-0.6807|-0.6734|-0.0103|-0.0062| -|
-
-
-#### Statistical test
-
-|metrics|ico|ico-delta|ico-process|total|process_delta|process|delta|
-|:------|--:|--------:|----------:|----:|------------:|------:|----:|
-|ico| -|0.1061|0.2181|0.2676|4.7118|4.9507|5.1096|
-|ico_delta|9.28e-05| -|0.1145|0.165|4.5489|4.7734|4.9235|
-|ico_process|2.84e-09|4.64e-04| -|0.0505|4.3019|4.5022|4.6375|
-|total|3.45e-05|6.33e-03|3.70e-01| -|4.1994|4.3906|4.5202|
-|process_delta|1.71e-15|1.71e-15|1.71e-15|1.71e-15| -|0.0255|0.0641|
-|process|1.71e-15|1.71e-15|1.71e-15|1.77e-15|3.81e-01| -|0.0396|
-|delta|1.71e-15|1.71e-15|1.71e-15|1.71e-15|3.61e-01|8.73e-01| -|
-
-
-<br>
-
-### Recall
-
-#### Differences
-
-|metrics|ico|ico-delta|ico-process|total|process_delta|process|delta|
-|:------|--:|--------:|----------:|----:|------------:|------:|----:|
-|ico| -| -| -| -| -| -| -|
-|ico_delta|-0.0153| -| -| -| -| -| -|
-|ico_process|-0.0415|-0.0262| -| -| -| -| -|
-|total|-0.0543|-0.0391|-0.0128| -| -| -| -|
-|process_delta|-0.6256|-0.6104|-0.5841|-0.5713| -| -| -|
-|process|-0.6311|-0.6158|-0.5896|-0.5767|-0.0054| -| -|
-|delta|-0.6664|-0.6511|-0.6249|-0.6120|-0.0407|-0.0353| -|
-
-#### Statistical test
-
-|metrics|ico|ico-delta|ico-process|total|process_delta|process|delta|
-|:------|--:|--------:|----------:|----:|------------:|------:|----:|
-|ico| -|0.1562|0.3707|0.4674|3.2063|3.3671|3.6713|
-|ico_delta|1.58e-06| -|0.2254|0.3241|3.0874|3.2394|3.5334|
-|ico_process|1.50e-09|1.56e-05| -|0.0969|2.8482|2.981|3.2515|
-|total|8.14e-07|2.41e-05|7.02e-03| -|2.7541|2.8807|3.1438|
-|process_delta|2.54e-15|2.93e-15|3.50e-15|3.50e-15| -|0.0214|0.1630|
-|process|1.98e-15|2.20e-15|3.04e-15|3.38e-15|2.11e-01| -|0.1447|
-|delta|2.12e-15|2.20e-15|2.28e-15|2.36e-15|5.93e-02|1.28e-01| -|
-
-<br>
-
-### F1
-
-#### Differences
-
-|metrics|ico|ico-delta|ico-process|total|process_delta|process|delta|
-|:------|--:|--------:|----------:|----:|------------:|------:|----:|
-|ico| -| -| -| -| -| -| -|
-|ico_delta|-0.0157| -| -| -| -| -| -|
-|ico_process|-0.0399|-0.0242| -| -| -| -| -|
-|total|-0.0506|-0.0349|-0.0106| -| -| -| -|
-|process_delta|-0.6943|-0.6786|-0.6543|-0.6437| -| -| -|
-|process|-0.6986|-0.6829|-0.6586|-0.6480|-0.0043| -| -|
-|delta|-0.7077|-0.6920|-0.6677|-0.6571|-0.0134|-0.0091| -|
-
-#### Statistical test
-
-|metrics|ico|ico-delta|ico-process|total|process_delta|process|delta|
-|:------|--:|--------:|----------:|----:|------------:|------:|----:|
-|ico| -|0.1262|0.2951|0.3712|4.5942|4.8454|4.9557|
-|ico_delta|7.19e-09| -|0.1752|0.2506|4.412|4.646|4.7514|
-|ico_process|4.03e-12|2.22e-07| -|0.0714|4.0178|4.2103|4.3033|
-|total|5.39e-07|4.13e-05|1.02e-02| -|3.9344|4.1218|4.2134|
-|process_delta|1.71e-15|1.71e-15|1.71e-15|1.71e-15| -|0.0253|0.0794|
-|process|1.71e-15|1.71e-15|1.71e-15|1.71e-15|1.91e-01| -|0.0560|
-|delta|1.71e-15|1.71e-15|1.71e-15|1.71e-15|2.06e-01|4.82e-01| -|

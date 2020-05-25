@@ -7,28 +7,36 @@ from collections import deque
 from scipy.stats import wilcoxon
 from statsmodels.stats.multitest import multipletests
 
-dataset = pd.read_csv('rq1&2_data.csv')
+dataset = pd.read_csv('rq2_data.csv')
 
-dt_df = dataset[dataset.approach == 'CART']
-lr_df = dataset[dataset.approach == 'LR']
-nb_df = dataset[dataset.approach == 'NB']
-rf_df = dataset[dataset.approach == 'RF']
-svc_df = dataset[dataset.approach == 'SVM']
+iac_df = dataset[dataset.metrics == 'ico']
+iacprocess_df = dataset[dataset.metrics == 'ico-process']
+iacdelta_df = dataset[dataset.metrics == 'ico-delta']
+process_df = dataset[dataset.metrics == 'process']
+deltaprocess_df = dataset[dataset.metrics == 'delta-process']
+delta_df = dataset[dataset.metrics == 'delta']
+total_df = dataset[dataset.metrics == 'total']
 
-print('Random Forest:')
-print(rf_df.describe())
+print('IAC')
+print(iac_df.describe())
 print()
-print('Decition Tree (CART):')
-print(dt_df.describe())
+print('TOTAL')
+print(total_df.describe())
 print()
-print('Support Vector Classifier:')
-print(svc_df.describe())
+print('IAC PROCESS')
+print(iacprocess_df.describe())
 print()
-print('Logistic Regression:')
-print(lr_df.describe())
+print('IAC DELTA')
+print(iacdelta_df.describe())
 print()
-print('Naive Bayes:')
-print(nb_df.describe())
+print('PROCESS')
+print(process_df.describe())
+print()
+print('DELTA PROCESS')
+print(deltaprocess_df.describe())
+print()
+print('DELTA')
+print(delta_df.describe())
 
 
 # function to calculate Cohen's d for independent samples
@@ -52,50 +60,63 @@ def _wilcoxon(d1, d2):
 
 eval_measures = dict(
     prauc = [
-        rf_df.pr_auc, 
-        dt_df.pr_auc, 
-        svc_df.pr_auc, 
-        lr_df.pr_auc, 
-        nb_df.pr_auc
+        iac_df.mean_pr_auc, 
+        iacdelta_df.mean_pr_auc, 
+        iacprocess_df.mean_pr_auc, 
+        total_df.mean_pr_auc, 
+        deltaprocess_df.mean_pr_auc, 
+        process_df.mean_pr_auc, 
+        delta_df.mean_pr_auc
     ],
 
     mcc = [
-        rf_df.mcc, 
-        dt_df.mcc, 
-        svc_df.mcc, 
-        lr_df.mcc, 
-        nb_df.mcc
+        iac_df.mean_mcc, 
+        iacdelta_df.mean_mcc, 
+        iacprocess_df.mean_mcc, 
+        total_df.mean_mcc, 
+        deltaprocess_df.mean_mcc, 
+        process_df.mean_mcc, 
+        delta_df.mean_mcc
     ],
 
     rocauc = [
-        rf_df.roc_auc, 
-        dt_df.roc_auc, 
-        svc_df.roc_auc, 
-        lr_df.roc_auc, 
-        nb_df.roc_auc
+        iac_df.mean_roc_auc, 
+        iacdelta_df.mean_roc_auc, 
+        iacprocess_df.mean_roc_auc, 
+        total_df.mean_roc_auc, 
+        deltaprocess_df.mean_roc_auc, 
+        process_df.mean_roc_auc, 
+        delta_df.mean_roc_auc
     ],
 
     precision = [
-        rf_df.precision, 
-        dt_df.precision, 
-        svc_df.precision, 
-        lr_df.precision, 
-        nb_df.precision
+        iac_df.mean_precision, 
+        iacdelta_df.mean_precision, 
+        iacprocess_df.mean_precision, 
+        total_df.mean_precision, 
+        deltaprocess_df.mean_precision, 
+        process_df.mean_precision, 
+        delta_df.mean_precision
     ],
 
     recall = [
-        rf_df.recall, 
-        dt_df.recall, 
-        svc_df.recall, 
-        lr_df.recall, 
-        nb_df.recall
+        iac_df.mean_recall, 
+        iacdelta_df.mean_recall, 
+        iacprocess_df.mean_recall, 
+        total_df.mean_recall, 
+        deltaprocess_df.mean_recall, 
+        process_df.mean_recall, 
+        delta_df.mean_recall
     ],
 
-    f1 = [rf_df.f1, 
-        dt_df.f1, 
-        svc_df.f1, 
-        lr_df.f1, 
-        nb_df.f1
+    f1 = [
+        iac_df.mean_f1, 
+        iacdelta_df.mean_f1, 
+        iacprocess_df.mean_f1, 
+        total_df.mean_f1, 
+        deltaprocess_df.mean_f1, 
+        process_df.mean_f1, 
+        delta_df.mean_f1
     ]
 )
 
@@ -124,31 +145,35 @@ for name, measures in eval_measures.items():
             else:
                 row[j] = round(cohend(measures[i], measures[j]) , 4)
 
-        model = ''
+        metrics = ''
         if i == 0:
-            model = 'RF'
+            metrics = 'ico'
         elif i == 1:
-            model = 'CART'
+            metrics = 'ico_delta'
         elif i == 2:
-            model = 'SVM'
+            metrics = 'ico_process'
         elif i == 3:
-            model = 'LR'
+            metrics = 'total'
         elif i == 4:
-            model = 'NB'
+            metrics = 'process_delta'
+        elif i == 5:
+            metrics = 'process'
+        elif i == 6:
+            metrics = 'delta'
 
-        row[-1] = model
+        row[-1] = metrics
         row.rotate(1)
         stattest_values.append(row)
 
-        row_diff[-1] = model
+        row_diff[-1] = metrics
         row_diff.rotate(1)
         diff_values.append(row_diff)
 
-    diff_df = pd.DataFrame(diff_values, columns=['Model', 'RF', 'CART', 'SVM', 'LR', 'NB'])
+    diff_df = pd.DataFrame(diff_values, columns=['metrics', 'ico', 'ico-delta', 'ico-process', 'total', 'process_delta', 'process', 'delta'])
     print('\nDifferences:')
     print(diff_df)
 
-    test_df = pd.DataFrame(stattest_values, columns=['Model', 'RF', 'CART', 'SVM', 'LR', 'NB'])
+    test_df = pd.DataFrame(stattest_values, columns=['metrics', 'ico', 'ico-delta', 'ico-process', 'total', 'process_delta', 'process', 'delta'])
     print('\nStatistical test:')
     print(test_df)
 
