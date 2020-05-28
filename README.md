@@ -1,2 +1,8 @@
-# WPDF-IaC-TSE2020-replication-package
-Replication package for the paper TODO
+# Defect Prediction of Infrastructure-as-Code Using Product and Process Metrics
+Replication package for the paper "Defect Prediction of Infrastructure-as-Code Using Product and Process Metrics" (TSE 2020)
+
+
+## Data Collection
+* [Link to IaC Miner]() with description
+* [Link to AnsibleMetrics]() with description
+*
