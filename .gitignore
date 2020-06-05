@@ -1,4 +1,6 @@
-tmp/
+data-collection/clones/
+data-collection/ansible_repositories.json
+data-collection/metrics.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
