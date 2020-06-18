@@ -17,3 +17,7 @@ Replication package for the paper *"Defect Prediction of Infrastructure-as-Code 
 
 
 * [AnsibleMetrics](https://github.com/radon-h2020/radon-ansible-metrics) ([PyPI v0.3.2](https://pypi.org/project/ansiblemetrics/)) - to extract product and delta metrics.
+
+
+## Script for Training and Validation
+All the scripts are available on Kaggle. Click [here](https://www.kaggle.com/stefadp/ansibledefectsprediction/kernels?sortBy=hotness&group=everyone&pageSize=20&datasetId=591542).
