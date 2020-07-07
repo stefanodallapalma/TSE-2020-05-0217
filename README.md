@@ -20,4 +20,9 @@ Replication package for the paper *"Defect Prediction of Infrastructure-as-Code 
 
 
 ## Script for Training and Validation
-All the scripts are available on Kaggle. Click [here](https://www.kaggle.com/stefadp/ansibledefectsprediction/kernels?sortBy=hotness&group=everyone&pageSize=20&datasetId=591542).
+The data and the scripts are available on Kaggle. Click [here](https://www.kaggle.com/stefadp/ansibledefectsprediction).
+The [kernels](https://www.kaggle.com/stefadp/ansibledefectsprediction/kernels?sortBy=hotness&group=everyone&pageSize=20&datasetId=591542) are divided in three groups:
+
+* the kernels with title *\<owner>/\<repository>* were used to answer RQ1.
+* the kernels with title ***metrics**/\<owner>/\<repository>* were used to answer RQ2.
+* the kernels with title ***rfe**/\<owner>/\<repository>* were used to answer RQ3.
