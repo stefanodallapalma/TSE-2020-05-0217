@@ -1,13 +1,25 @@
 # Defect Prediction of Infrastructure-as-Code Using Product and Process Metrics
-Replication package for the paper *"Defect Prediction of Infrastructure-as-Code Using Product and Process Metrics"* submitted at Transantion on Software Engineering (TSE 2020).
+Replication package for the paper *"Defect Prediction of Infrastructure-as-Code Using Product and Process Metrics"* submitted at Transantions on Software Engineering (TSE 2020).
 
 ## Structure
 * **rq1** contains data and scripts for RQ1 with respective README;
 * **rq2** contains data and scripts for RQ2 with respective README;
 * **rq3** contains data and scripts for RQ3 with respective README;
-* **data-collection** contains the scripts used to collect the data used for the analysis. **Note:** data may change given the dynamic nature of GitHub (e.g., more commits and files added/removed from a repository). 
+* **data-collection** contains the scripts used to collect the data used for the analysis. **Note:** data may change given the dynamic nature of GitHub (e.g., more commits and files sadded/removed from a repository). 
 
-## Tools used
+
+## Data
+
+In order:
+
+1. `collected_repositories.csv` contains data of the 1114 collected repositories.
+
+2. `selected_repositories.csv` contains data of the 200 repositories that satisfied the inclusion criteria. 
+
+
+
+## Tool
+s used
 
 * [iac-miner](https://github.com/stefanodallapalma/iac-miner) ([PyPI v0.0.2](https://pypi.org/project/iacminer/)) - to crawl GitHub and collect relevant Ansible-based repositories, as well as labelling defect-prone scripts. It uses *PyDriller* and *RepositoryScorer*.
   
