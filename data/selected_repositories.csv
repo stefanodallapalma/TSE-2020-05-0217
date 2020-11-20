@@ -32,7 +32,7 @@ comments_ratio,commit_frequency,core_contributors,fixed_file_count,fixing_commit
 0.0937,15.67,5,36,56,openfoodfoundation/ofn-install,True,False,0.8042,19954737,1.84,0,3038
 0.1266,48.66,15,36,47,openstack/tripleo-quickstart,False,True,0.7632,55234238,0,0,17330
 0.1846,7.2,6,34,28,redhat-cop/casl-ansible,False,True,0.7106,70272278,6.53,0,8359
-0.0137,2.04,3,34,11,lean-delivery/ansible-role-java,True,True,0.9677,139833681,0.1,0,7553
+0.0137,1.79,3,34,11,lean-delivery/ansible-role-java,True,True,0.9677,139833681,0.1,0,7553
 0.0149,34.41,4,33,30,folio-org/folio-ansible,False,True,0.4889,67722864,0,0,44613
 0.0849,6.37,4,32,28,aalaesar/install_nextcloud,True,True,0.8448,67760353,0.54,0,1919
 0.0285,26.09,4,31,43,pingcap/tidb-ansible,False,True,0.8285,74197456,1.96,0,98050

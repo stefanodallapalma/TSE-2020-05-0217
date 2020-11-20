@@ -2,7 +2,7 @@
 
 In order:
 
-1. `collected-repositories.csv` contains data of the 1114 collected repositories.
+1. `collected-repositories.csv` contains data of the 1050 collected repositories.
 
 2. `selected-repositories.csv` contains data of the 200 repositories that satisfied the inclusion criteria. 
 
