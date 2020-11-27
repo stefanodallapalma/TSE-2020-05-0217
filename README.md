@@ -4,34 +4,37 @@ Replication package for the paper *"Defect Prediction of Infrastructure-as-Code 
 
 ## Info
 
-* **METRICS.md** - Table of metrics used to train the models (introduced in Section 3.3)
-* **HYPER-PARAMETERS.md** - Hyper-parameters used to train the models (introduced in Section 3.4)
-* **RQ1.md** - Results of RQ1.
-* **RQ2.md** - Results of RQ2.
-* **RQ3.md** - Results of RQ3. (**TO ADD**)
-
+* [`METRICS.md`](METRICS.md) - Table of metrics used to train the models (introduced in Section 3.3)
+* [`HYPER-PARAMETERS.md`](HYPER-PARAMETERS.md) - Hyper-parameters used to train the models (introduced in Section 3.4)
+* [`RQ1.md`](RQ1.md) - Results of RQ1.
+* [`RQ2.md`](RQ2.md) - Results of RQ2.
+* [`RQ3.md`](RQ3.md) - Results of RQ3. (**TO ADD**)
 
 
 ## Data
 
 In order:
 
-1. `collected-repositories.csv` - the 1050 collected repositories.
+1. [`collected-repositories.csv`](collected-repositories.csv) - the 1050 collected repositories.
 
-2. `selected-repositories.csv` - the 200 repositories that satisfied the inclusion criteria in Table 1.
+2. [`selected-repositories.csv`](selected-repositories.csv) - the 200 repositories that satisfied the inclusion criteria in Table 1.
 
-3. `analyzed-repositories.csv` - the 104 repositories used to answer the RQs.
+3. [`analyzed-repositories.csv`](analyzed-repositories.csv) - the 104 repositories used to answer the RQs.
 
-4. `rq1.csv` - data collected to answer RQ1 (Techniques performance).
+4. [`fixing-commits-validation.csv`](fixing-commits-validation.csv) - data collected to answer RQ1 (Techniques performance).
 
-5. `rq2.csv` - data collected to answer RQ2 (Metrics performance).
+5. [`szz-validation.csv`](szz-validation.csv) - data collected to answer RQ1 (Techniques performance).
 
-6. `rq3.json` - data collected to answer RQ3 (Recursive Feature Elimination). (**TO ADD**)
+6. [`rq1.csv`](rq1.csv) - data collected to answer RQ1 (Techniques performance).
+
+7. [`rq2.csv`](rq2.csv) - data collected to answer RQ2 (Metrics performance).
+
+8. [`rq3.json`](rq3.json) - data collected to answer RQ3 (Recursive Feature Elimination). (**TO ADD**)
 
 
 
 ## Kaggle
-On kaggle it is possible to find the dataset containing the data to build the models. [Go to Kaggle](https://www.kaggle.com/stefadp/ansibledefectsprediction/) or [download](https://www.kaggle.com/stefadp/ansibledefectsprediction/download) the dataset.
+On kaggle is the dataset containing the data to build the models. [Go to Kaggle](https://www.kaggle.com/stefadp/ansibledefectsprediction/) or [download](https://www.kaggle.com/stefadp/ansibledefectsprediction/download) the dataset.
 
 
 The [kernels](https://www.kaggle.com/stefadp/ansibledefectsprediction/kernels?sortBy=hotness&group=everyone&pageSize=20&datasetId=591542) are divided in three groups:
@@ -45,21 +48,26 @@ The [kernels](https://www.kaggle.com/stefadp/ansibledefectsprediction/kernels?so
 
 ## Tool Suite
 
-1. `IaC Github Repositories Collector` - To collect active repositories. Available on [Github](https://github.com/radon-h2020/radon-repositories-collector) and [PyPI](https://pypi.org/project/repositories-collector/).
+The **RADON Framework for IaC Defect Prediction** is available on [Github](https://github.com/radon-h2020/radon-defect-prediction-api).
+Below the tools we used to build it.
+
+
+1. `IaC Github Repositories Collector`(https://github.com/radon-h2020/radon-repositories-collector) - To collect active repositories. 
+See on [Github].
 
 2. `Repository Scorer` - To collect repository metrics based on best engineering practices. 
-Available on [Github](https://github.com/radon-h2020/radon-repository-scorer) and [PyPI](https://pypi.org/project/repository-scorer/).
+See on [Github](https://github.com/radon-h2020/radon-repository-scorer).
 
 3. `IaC Repository Miner` - To miner repositories and collect product, delta, and process metrics.
-Available on [Github](https://github.com/radon-h2020/radon-repository-miner) and [PyPI](https://pypi.org/project/repository-miner/).
+See on [Github](https://github.com/radon-h2020/radon-repository-miner).
  
     3.1. `AnsibleMetrics` - To extract product metrics for Ansible.
-    Available on [Github](https://github.com/radon-h2020/radon-ansible-metrics) and [PyPI](https://pypi.org/project/ansiblemetrics/).
+    See on [Github](https://github.com/radon-h2020/radon-ansible-metrics).
  
     3.1. `PyDriller` - To analyze commit history and extract process metrics.
-    Available on [Github](https://github.com/ishepard/pydriller) and [PyPI](https://pypi.org/project/PyDriller/).
+    See on [Github](https://github.com/ishepard/pydriller).
 
-4. `IaC Defect Predictor` - To build and evaluate models. Available on [Github](https://github.com/radon-h2020/radon-defect-prediction-cli) and [PyPI](https://pypi.org/project/radon-defect-predictor/).
+4. `IaC Defect Predictor` - To build and evaluate models. See on [Github](https://github.com/radon-h2020/radon-defect-prediction-cli).
 
 
 
