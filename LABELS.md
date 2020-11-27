@@ -6,7 +6,7 @@
 |Bug - Medium|
 |Bug - Low|
 |Bug - Critical|
-|ansible_bug'|
+|ansible_bug|
 |Type: Bug|
 |Type: bug|
 |Type/Bug|
