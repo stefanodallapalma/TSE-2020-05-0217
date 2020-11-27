@@ -4,8 +4,9 @@ Replication package for the paper *"Defect Prediction of Infrastructure-as-Code 
 
 ## Info
 
-* [`METRICS.md`](METRICS.md) - Table of metrics used to train the models (introduced in Section 3.3)
-* [`HYPER-PARAMETERS.md`](HYPER-PARAMETERS.md) - Hyper-parameters used to train the models (introduced in Section 3.4)
+* [`HYPER-PARAMETERS.md`](HYPER-PARAMETERS.md) - Hyper-parameters used to train the models (introduced in Section 3.4).
+* [`LABELS.md`](LABELS.md) - Labels used to identify bug-related issues.
+* [`METRICS.md`](METRICS.md) - Table of metrics used to train the models (introduced in Section 3.3).
 * [`RQ1.md`](RQ1.md) - Results of RQ1.
 * [`RQ2.md`](RQ2.md) - Results of RQ2.
 * [`RQ3.md`](RQ3.md) - Results of RQ3. (**TO ADD**)
