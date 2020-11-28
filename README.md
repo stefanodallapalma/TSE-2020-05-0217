@@ -22,9 +22,9 @@ In order:
 
 3. [`analyzed-repositories.csv`](analyzed-repositories.csv) - the 104 repositories used to answer the RQs.
 
-4. [`fixing-commits-validation.csv`](fixing-commits-validation.csv) - data collected to answer RQ1 (Techniques performance).
+4. [`fixing-commits-validation.csv`](fixing-commits-validation.csv) - sample of manually assessed defect-fixing commits.
 
-5. [`szz-validation.csv`](szz-validation.csv) - data collected to answer RQ1 (Techniques performance).
+5. [`szz-validation.csv`](szz-validation.csv) - sample of manually assessed defect-inducing commits.
 
 6. [`rq1.csv`](rq1.csv) - data collected to answer RQ1 (Techniques performance).
 
