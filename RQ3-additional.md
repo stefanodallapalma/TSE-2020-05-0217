@@ -60,7 +60,7 @@ This table lists the number of times each metric has been selected among the opt
 
 ## Top 20 combinations
 
-This table lists the most 20 combinations of metrics selected among the optimal set of features in RQ3.
+This table lists the most 20 combinations of metrics selected among the optimal set of features in RQ3-Additional.
 
 |Occurrences|Combination|
 |---:|----|
