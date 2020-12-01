@@ -9,7 +9,7 @@ Replication package for the paper *"Defect Prediction of Infrastructure-as-Code 
 * [`METRICS.md`](METRICS.md) - Table of metrics used to train the models (introduced in Section 3.3).
 * [`RQ1.md`](RQ1.md) - Results of RQ1.
 * [`RQ2.md`](RQ2.md) - Results of RQ2.
-* [`RQ3.md`](RQ3.md) - Results of RQ3. (**TO ADD**)
+* [`RQ3.md`](RQ3.md) - Results of RQ3.
 
 
 ## Data
@@ -30,7 +30,7 @@ In order:
 
 7. [`rq2.csv`](rq2.csv) - data collected to answer RQ2 (Metrics performance).
 
-8. [`rq3.json`](rq3.json) - data collected to answer RQ3 (Recursive Feature Elimination). (**TO ADD**)
+8. [`rq3.json`](rq3.json) - data collected to answer RQ3 (Recursive Feature Elimination).
 
 
 
