@@ -10,21 +10,27 @@ Replication package for the paper *"Defect Prediction of Infrastructure-as-Code 
 * [`RQ1.md`](RQ1.md) - Results of RQ1.
 * [`RQ2.md`](RQ2.md) - Results of RQ2.
 * [`RQ3.md`](RQ3.md) - Results of RQ3.
+* [`RQ3-additional.md`](RQ3-additional.md) - Results of the additional analysis for RQ3.
 
 
 ## Data
+
+For the sake of size limitation, the raw data has been uploaded on [Zenodo](https://doi.org/10.5281/zenodo.4299908).
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4299908.svg)](https://doi.org/10.5281/zenodo.4299908)
+
 
 In order:
 
 1. [`collected-repositories.csv`](collected-repositories.csv) - the 1050 collected repositories.
 
-2. [`selected-repositories.csv`](selected-repositories.csv) - the 200 repositories that satisfied the inclusion criteria in Table 1.
+2. [`selected-repositories.csv`](selected-repositories.csv) - the 200 repositories that satisfied the inclusion criteria in paper's Table 1.
 
 3. [`analyzed-repositories.csv`](analyzed-repositories.csv) - the 104 repositories used to answer the RQs.
 
-4. [`fixing-commits-validation.csv`](fixing-commits-validation.csv) - sample of manually assessed defect-fixing commits.
+4. [`fixing-commits-validation.csv`](fixing-commits-validation.csv) - sample of manually assessed defect-fixing commits. The complete list of defect-fixing commits is available on Zenodo.
 
-5. [`szz-validation.csv`](szz-validation.csv) - sample of manually assessed defect-inducing commits.
+5. [`szz-validation.csv`](szz-validation.csv) - sample of manually assessed defect-inducing commits. The complete list of defect-fixing commits is available on Zenodo.
 
 6. [`rq1.csv`](rq1.csv) - data collected to answer RQ1 (Techniques performance).
 
