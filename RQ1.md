@@ -1,11 +1,5 @@
-# RQ1a - To what extent do code and process metrics predict the defectiveness of IaC blueprints?
+# RQ1 - Impact of Learning Techniques
 
-
-The file **rq1_data.csv** contains the results of the application of the five ML methods for each of the 85 projects; while the file **rq1a.py** is the script used to analyze those results.
-
-Run ```python rq1a.py``` to start the analysis.
-
-<br>
 
 ## Results per project
 
@@ -121,20 +115,7 @@ Run ```python rq1a.py``` to start the analysis.
 <br>
 
 
-****
-
-# RQ1b - How is the prediction performance affected by the choice of learning methods?
-
-
-The file **rq1_data.csv** contains the results of the application of the five ML methods for each of the 85 projects; while the file **rq1b.py** is the script used to analyze those results aggregating data by model.
-
-Run ```python rq1b.py``` to start the analysis.
-
-
-<br>
-
-
-## Summary of techniques
+## Techniques Performance
 
 ### Random Forest
 
@@ -240,7 +221,9 @@ Run ```python rq1b.py``` to start the analysis.
 <br>
 <br>
 
-## Differences among means and statistical tests
+****
+
+## Differences among techniques and statitical tests
 
 **Difference table info:**
 * Values below the diagonal are difference between the mean of the model in the row and the model in the column. A negative value means that the model in the row performed worse than the one in the column.
