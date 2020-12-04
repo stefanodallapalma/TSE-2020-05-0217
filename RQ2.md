@@ -1,4 +1,6 @@
-### IaC-Oriented (ICO)
+# RQ2 - Effect of Metric Sets
+
+## IaC-Oriented (ICO)
 
 |       |     roc_auc |   std_roc_auc |     pr_auc |   std_pr_auc |   precision |   std_precision |     recall |   std_recall |         f1 |      std_f1 |        mcc |    std_mcc |
 |:------|------------:|--------------:|-----------:|-------------:|------------:|----------------:|-----------:|-------------:|-----------:|------------:|-----------:|-----------:|
@@ -12,7 +14,7 @@
 | max   |   1         |     0.311805  |   1        |    0.389899  |   1         |        0.471405 |   1        |     0.5      |   1        |   0.436436  |   1        |   0.640095 |
 <br>
 
-### Total
+## Total
 
 |       |     roc_auc |   std_roc_auc |     pr_auc |   std_pr_auc |   precision |   std_precision |     recall |   std_recall |         f1 |     std_f1 |        mcc |    std_mcc |
 |:------|------------:|--------------:|-----------:|-------------:|------------:|----------------:|-----------:|-------------:|-----------:|-----------:|-----------:|-----------:|
@@ -26,7 +28,7 @@
 | max   |   1         |     0.35      |   1        |    0.4375    |    1        |        0.471405 |   1        |     0.484123 |   1        |   0.471405 |   1        |   0.671855 |
 <br>
 
-### ICO-Process
+## ICO-Process
 
 |       |     roc_auc |   std_roc_auc |     pr_auc |   std_pr_auc |   precision |   std_precision |     recall |   std_recall |         f1 |     std_f1 |        mcc |    std_mcc |
 |:------|------------:|--------------:|-----------:|-------------:|------------:|----------------:|-----------:|-------------:|-----------:|-----------:|-----------:|-----------:|
@@ -40,7 +42,7 @@
 | max   |   1         |     0.35      |   1        |    0.4375    |   1         |        0.471405 |   1        |     0.473853 |   1        |   0.439978 |   1        |   0.612372 |
 <br>
 
-### ICO-Delta
+## ICO-Delta
 
 |       |     roc_auc |   std_roc_auc |     pr_auc |   std_pr_auc |   precision |   std_precision |     recall |   std_recall |         f1 |      std_f1 |          mcc |    std_mcc |
 |:------|------------:|--------------:|-----------:|-------------:|------------:|----------------:|-----------:|-------------:|-----------:|------------:|-------------:|-----------:|
@@ -54,7 +56,7 @@
 | max   |   1         |     0.35      |   1        |    0.4375    |    1        |       0.444444  |   1        |     0.451754 |   1        |   0.392677  |   1          |   0.533594 |
 <br>
 
-### Process
+## Process
 
 |       |     roc_auc |   std_roc_auc |      pr_auc |   std_pr_auc |   precision |   std_precision |      recall |   std_recall |          f1 |     std_f1 |         mcc |    std_mcc |
 |:------|------------:|--------------:|------------:|-------------:|------------:|----------------:|------------:|-------------:|------------:|-----------:|------------:|-----------:|
@@ -68,7 +70,7 @@
 | max   |   0.946429  |      0.440698 |   0.964286  |     0.472954 |   0.839286  |        0.481046 |   1         |     0.5      |   0.845238  |   0.481046 |   0.821429  |   0.715819 |
 <br>
 
-### Process-Delta
+## Process-Delta
 
 |       |     roc_auc |   std_roc_auc |     pr_auc |   std_pr_auc |   precision |   std_precision |     recall |   std_recall |          f1 |     std_f1 |         mcc |    std_mcc |
 |:------|------------:|--------------:|-----------:|-------------:|------------:|----------------:|-----------:|-------------:|------------:|-----------:|------------:|-----------:|
@@ -82,7 +84,7 @@
 | max   |   0.946429  |      0.391015 |   0.964286 |     0.472954 |   0.875     |        0.49793  |   0.892857 |     0.5      |   0.880952  |   0.49793  |   0.857143  |   0.642824 |
 <br>
 
-### Delta
+## Delta
 
 |       |     roc_auc |   std_roc_auc |      pr_auc |   std_pr_auc |   precision |   std_precision |      recall |   std_recall |          f1 |      std_f1 |         mcc |     std_mcc |
 |:------|------------:|--------------:|------------:|-------------:|------------:|----------------:|------------:|-------------:|------------:|------------:|------------:|------------:|
@@ -99,8 +101,18 @@
 
 <br>
 
-### PRAUC
+****
+## Differences among metric sets and statitical tests
 
+**Difference table info:**
+* Values below the diagonal are difference between the mean of the models featuring the metrics in the row and the models featuring the metrics in the column. A negative value means that the models featuring the metrics in the row performed worse than those featuring the metrics in the column.
+
+**Statistical test table info:**
+* Values above the diagonal are the Choen's *d* effect size.
+* Values below the diagonal are the p-values for the pairwise Wilcoxon's rank test.
+* The shown p-values are not corrected for the number of comparisons. To do so, multiply each value by the number of comparisons, that is: *p-value * 21*.
+
+### PRAUC
 
 **Differences:**
 
