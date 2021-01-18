@@ -1,6 +1,19 @@
 # Within-Project Defect Prediction of Infrastructure-as-Code Using Product and Process Metrics
 
-Replication package for the paper *"Within-Project Defect Prediction of Infrastructure-as-Code Using Product and Process Metrics"* submitted at Transantions on Software Engineering (TSE 2020).
+Replication package for the paper [Within-Project Defect Prediction of Infrastructure-as-Code Using Product and Process Metrics](https://ieeexplore.ieee.org/document/9321740) accepted for publication in IEEE Transantions on Software Engineering (TSE 2020).
+
+## How to cite
+```
+@ARTICLE{9321740,
+  author={S. {Dalla Palma} and D. {Di Nucci} and F. {Palomba} and D. A. {Tamburri}},
+  journal={IEEE Transactions on Software Engineering}, 
+  title={Within-Project Defect Prediction of Infrastructure-as-Code Using Product and Process Metrics}, 
+  year={2021},
+  volume={},
+  number={},
+  pages={1-1},
+  doi={10.1109/TSE.2021.3051492}}
+```
 
 ## Info
 
