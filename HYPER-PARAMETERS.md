@@ -11,7 +11,7 @@
 
 
 
-## Logist Bayes
+## Logistic Regression
 
 | Parameter | Possible values|
 |-----------|----------------|
