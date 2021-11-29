@@ -61,7 +61,6 @@ Keywords: Infrastructure as code; Software metrics; Software quality
 |TextEntropy | Entropy of the script as text |
 |||
 |**Process**||
-|ActiveDevs | Number of active developers that contributed to a file |
 |Additions, AvgAdditions, MaxAdditions | Total, average and maximum number of lines added to a file, respectively  |
 |Deletions, AvgDeletions, MaxDeletions | Total, average and maximum number of lines removed to a file, respectively |
 |AvgChangeSet, MaxChangeSet |  Average and maximum number of files committed together to the repository |
