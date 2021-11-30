@@ -87,7 +87,7 @@ See on [Github](https://github.com/radon-h2020/radon-repository-miner).
     3.1. `PyDriller` - To analyze commit history and extract process metrics.
     See on [Github](https://github.com/ishepard/pydriller).
 
-4. `IaC Defect Predictor` - To build and evaluate models. See on [Github](https://github.com/radon-h2020/radon-defect-prediction-cli).
+4. `IaC Defect Predictor` - To build and evaluate models. See on [Github](https://github.com/radon-h2020/radon-defuse).
 
 
 
