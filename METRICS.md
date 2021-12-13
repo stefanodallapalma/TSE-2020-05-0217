@@ -1,20 +1,22 @@
 # IaC-Oriented and Process Metrics
 
 This is the list of IaC-Oriented (ICO) and process metrics employed in the study.
-For more information on the IaC-Oriented metrics, please see the following [paper](https://doi.org/10.1016/j.jss.2020.110726):
+For more information on the IaC-Oriented metrics, please refer to the following [paper](https://doi.org/10.1016/j.jss.2020.110726):
 
 ```text
-Stefano Dalla Palma, Dario Di Nucci, Fabio Palomba, Damian Andrew Tamburri,
-Toward a catalog of software quality metrics for infrastructure code,
-Journal of Systems and Software,
-Volume 170,
-2020,
-110726,
-ISSN 0164-1212,
-https://doi.org/10.1016/j.jss.2020.110726.
-(http://www.sciencedirect.com/science/article/pii/S0164121220301618)
-Abstract: Infrastructure-as-code (IaC) is a practice to implement continuous deployment by allowing management and provisioning of infrastructure through the definition of machine-readable files and automation around them, rather than physical hardware configuration or interactive configuration tools. On the one hand, although IaC represents an ever-increasing widely adopted practice nowadays, still little is known concerning how to best maintain, speedily evolve, and continuously improve the code behind the IaC practice in a measurable fashion. On the other hand, source code measurements are often computed and analyzed to evaluate the different quality aspects of the software developed. However, unlike general-purpose programming languages (GPLs), IaC scripts use domain-specific languages, and metrics used for GPLs may not be applicable for IaC scripts. This article proposes a catalog consisting of 46 metrics to identify IaC properties focusing on Ansible, one of the most popular IaC language to date, and shows how they can be used to analyze IaC scripts.
-Keywords: Infrastructure as code; Software metrics; Software quality
+@article{DALLAPALMA2020110726,
+title = {Toward a catalog of software quality metrics for infrastructure code},
+journal = {Journal of Systems and Software},
+volume = {170},
+pages = {110726},
+year = {2020},
+issn = {0164-1212},
+doi = {https://doi.org/10.1016/j.jss.2020.110726},
+url = {https://www.sciencedirect.com/science/article/pii/S0164121220301618},
+author = {Stefano {Dalla Palma} and Dario {Di Nucci} and Fabio Palomba and Damian Andrew Tamburri},
+keywords = {Infrastructure as code, Software metrics, Software quality},
+abstract = {Infrastructure-as-code (IaC) is a practice to implement continuous deployment by allowing management and provisioning of infrastructure through the definition of machine-readable files and automation around them, rather than physical hardware configuration or interactive configuration tools. On the one hand, although IaC represents an ever-increasing widely adopted practice nowadays, still little is known concerning how to best maintain, speedily evolve, and continuously improve the code behind the IaC practice in a measurable fashion. On the other hand, source code measurements are often computed and analyzed to evaluate the different quality aspects of the software developed. However, unlike general-purpose programming languages (GPLs), IaC scripts use domain-specific languages, and metrics used for GPLs may not be applicable for IaC scripts. This article proposes a catalog consisting of 46 metrics to identify IaC properties focusing on Ansible, one of the most popular IaC language to date, and shows how they can be used to analyze IaC scripts.}
+}
 ```
 
 |Measure|Description|
