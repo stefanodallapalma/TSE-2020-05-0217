@@ -4,15 +4,16 @@ Replication package for the paper [Within-Project Defect Prediction of Infrastru
 
 ## How to cite
 ```
-@ARTICLE{9321740,
-  author={S. {Dalla Palma} and D. {Di Nucci} and F. {Palomba} and D. A. {Tamburri}},
-  journal={IEEE Transactions on Software Engineering}, 
-  title={Within-Project Defect Prediction of Infrastructure-as-Code Using Product and Process Metrics}, 
-  year={2021},
-  volume={},
-  number={},
-  pages={1-1},
-  doi={10.1109/TSE.2021.3051492}}
+@ARTICLE{9321740,  
+  author={{Dalla Palma}, Stefano and {Di Nucci}, Dario and Palomba, Fabio and Tamburri, Damian A.},  
+  journal={IEEE Transactions on Software Engineering},   
+  title={Within-Project Defect Prediction of Infrastructure-as-Code Using Product and Process Metrics},   
+  year={2022},  
+  volume={48},  
+  number={6},  
+  pages={2086-2104},  
+  doi={10.1109/TSE.2021.3051492}
+}
 ```
 
 ## Info
